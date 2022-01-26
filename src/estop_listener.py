@@ -13,7 +13,7 @@ def estop_btn_event(msg):
         rospy.loginfo("Received E Stop Event from Arduino.")
         if not launched_pure_pursuit:
             rospy.loginfo("Launched pure_pursuit from igvc_estop.")
-            subprocess.Popen(["roslaunch", "igvc_estop", "estop_pure_pursuit.launch"])
+            subprocess.Popen(["roslaunch", "igvc_estop", "estop_pure_pursuit_node.launch"])
             launched_pure_pursuit = True
 
 
