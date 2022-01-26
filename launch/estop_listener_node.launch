@@ -1,3 +1,0 @@
-<launch>
-    <node pkg="igvc_estop" type="estop_listener.py" name="pure_pursuit"/>
-</launch>
