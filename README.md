@@ -19,9 +19,20 @@ catkin_make
 ```
 
 ## Running the package
+### roslaunch 
+To launch the package, simple use `roslaunch` command.
+```commandline
+source devel/setup.bash
+roslaunch igvc_estop estop_listener_node.launch 
+```
+Using roslaunch won't require launching `roscore` separately.
+
+### rosrun
 To run the package, simple use `rosrun` command. 
 
 ```commandline
 source devel/setup.bash
 rosrun igvc_estop estop_listener.py
 ```
+
+Before running `rosrun`, make sure `roscore` is running.

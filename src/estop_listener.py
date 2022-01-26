@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import Header
 from autoware_msgs.msg import ControlCommand
 from autoware_msgs.msg import ControlCommandStamped
+from std_msgs.msg import Header
 
 
 def main():
-    rospy.init_node('pure_pursuit')
+    rospy.init_node('pure_pursuit', log_level=rospy.DEBUG)
+    rospy.loginfo("Initialized ROS Node pure_pursuit")
     pub = rospy.Publisher('ctrl_raw', ControlCommandStamped, queue_size=10)
+    rospy.loginfo("Publishing to topic ctrl_raw...")
     rate = rospy.Rate(20)
 
     while not rospy.is_shutdown():
@@ -23,6 +25,7 @@ def main():
         control_command_stamped_msg.header = header_msg
         control_command_stamped_msg.cmd = control_command_msg
         pub.publish(control_command_stamped_msg)
+        rospy.logdebug(control_command_stamped_msg, logger_name="ctrl_raw_msg")
         rate.sleep()
 
 
