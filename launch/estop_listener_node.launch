@@ -1,0 +1,4 @@
+<launch>
+    <param name="estop_topic_name" value="gem_estop"/>
+    <node pkg="igvc_estop" type="estop_listener.py" name="estop_listener"/>
+</launch>
