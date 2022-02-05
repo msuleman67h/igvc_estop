@@ -9,6 +9,7 @@ project(igvc_estop)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   autoware_msgs
+  geometry_msgs
   rospy
   std_msgs
 )
