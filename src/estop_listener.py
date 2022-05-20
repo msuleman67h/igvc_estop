@@ -10,8 +10,6 @@ def estop_btn_event(msg):
     if msg.data:
         rospy.loginfo("Received E Stop Event from Arduino.")
         pure_pursuit_flag_publisher.publish(True)
-    else:
-        pure_pursuit_flag_publisher.publish(False)
 
 
 def main():
