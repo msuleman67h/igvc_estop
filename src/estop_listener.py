@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-import subprocess
-
 import rospy
 from std_msgs.msg import Bool
 
@@ -11,10 +9,9 @@ def estop_btn_event(msg):
 
     if msg.data:
         rospy.loginfo("Received E Stop Event from Arduino.")
-        if not launched_pure_pursuit:
-            rospy.loginfo("Launched pure_pursuit from igvc_estop.")
-            subprocess.Popen(["roslaunch", "igvc_estop", "estop_pure_pursuit_node.launch"])
-            launched_pure_pursuit = True
+        pure_pursuit_flag_publisher.publish(False)
+    else:
+        pure_pursuit_flag_publisher.publish(True)
 
 
 def main():
@@ -26,4 +23,5 @@ def main():
 
 if __name__ == "__main__":
     launched_pure_pursuit = False
+    pure_pursuit_flag_publisher = rospy.Publisher('purepursuit/stop', Bool, queue_size=10)
     main()
