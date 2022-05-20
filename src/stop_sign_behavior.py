@@ -10,7 +10,6 @@ def callback(data):
     global stop_start_timer
     global pub
 
-    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.pose)
     stopping_radius = rospy.get_param("stop_sign_stopping_distance")
     if (abs(data.pose.position.x - stop_signs[stop_sign_index][0]) < stopping_radius) and (
             abs(data.pose.position.y - stop_signs[stop_sign_index][1]) < stopping_radius):
