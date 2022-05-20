@@ -2,7 +2,7 @@
     <param name="estop_topic_name" value="gem_estop"/>
     <node pkg="igvc_estop" type="estop_listener.py" name="estop_listener"/>
 
-    <param name="stop_sign_config_file" value="$(find igvc_estop)/stop_sign_configs/stop_signs.yaml"/>
     <param name="stop_sign_stopping_distance" value=5/>
-    <node pkg="igvc_estop" type="stop_sign_behavior.py" name="stop_sign_behavior"/>
+    <param name="stop_sign_config_file" value="$(find igvc_estop)/stop_sign_configs/stop_signs.yaml"/>
+    <node pkg="igvc_estop" type="$(find igvc_estop)/stop_sign_behavior.py" name="stop_sign_behavior"/>
 </launch>
